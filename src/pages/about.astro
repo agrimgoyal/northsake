@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+---
+
+<BaseLayout
+  title="About Northsake — Our Story and Approach"
+  description="Northsake builds AI visibility infrastructure for consulting firms. Learn about our approach to SEO, GEO, and why we focus exclusively on firms that sell expertise."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+  ]}
+>
+  <SchemaMarkup
+    type="person"
+    data={{
+      name: 'Agrim Goyal',
+      jobTitle: 'Founder',
+      description: 'Founder of Northsake, building AI visibility infrastructure for consulting firms.',
+      url: 'https://northsake.com/about',
+    }}
+  />
+
+  <!-- ===== HERO ===== -->
+  <section class="content-container pt-16 md:pt-28 pb-24 md:pb-36">
+    <div class="max-w-4xl">
+      <p class="section-number mb-8">About Northsake</p>
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-ns-text leading-tight mb-8">
+        Visibility should be<br />
+        <span class="italic text-ns-accent">built, not bought.</span>
+      </h1>
+      <p class="prose-ns max-w-2xl">
+        We started Northsake with a simple observation: the consulting firms with the deepest
+        expertise weren't the ones getting found. The firms winning on visibility were the ones
+        who treated it as infrastructure, not an afterthought.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== THE STORY ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="story-heading">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">01</span>
+        <h2 id="story-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4">
+          How we got here.
+        </h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 pt-4 space-y-6">
+        <p class="prose-ns">
+          I watched a consulting firm with exceptional talent lose a major engagement to a competitor
+          whose primary advantage was showing up first — in Google results, in AI-generated recommendations,
+          in every channel where the client was doing their research.
+        </p>
+        <p class="prose-ns">
+          The better firm had better people, better methodology, better track record. But none of
+          that mattered because the client never found them. By the time they entered the conversation,
+          the decision was already shaped by whoever the algorithms surfaced first.
+        </p>
+        <p class="prose-ns">
+          That's the problem Northsake exists to solve. Not with quick fixes or keyword tricks,
+          but by building the kind of visibility infrastructure that compounds — that makes your
+          expertise findable, citable, and authoritative across every channel where your future
+          clients are looking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== OUR APPROACH ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="approach-heading">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">02</span>
+        <h2 id="approach-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4">
+          How we think about visibility.
+        </h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 pt-4">
+        <div class="space-y-12">
+          {[
+            {
+              title: 'Infrastructure over campaigns',
+              body: 'Campaigns end. Infrastructure compounds. Every piece of work we do is designed to build on itself — creating durable visibility that grows stronger with time, not a temporary spike that fades.',
+            },
+            {
+              title: 'Dual-channel visibility',
+              body: 'Google and AI engines evaluate content differently. We optimize for both simultaneously — structured for search, authored for citation. Your firm shouldn\'t have to choose between being ranked and being cited.',
+            },
+            {
+              title: 'Expertise-first content',
+              body: 'We don\'t write thin content to hit keyword targets. We work with firms to surface and structure the expertise they already have — the insights, frameworks, and perspectives that demonstrate real authority.',
+            },
+            {
+              title: 'Measurement over promises',
+              body: 'We track what matters: search positions, AI citation frequency, referral quality, and pipeline influence. Every engagement starts with a NorthScore and every month shows measurable progress against it.',
+            },
+          ].map((principle) => (
+            <div class="border-l-2 border-ns-border pl-8 hover:border-ns-accent transition-colors duration-300">
+              <h3 class="font-sans font-semibold text-ns-text text-lg mb-3">{principle.title}</h3>
+              <p class="text-ns-text-secondary leading-relaxed">{principle.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== FOUNDER ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="founder-heading">
+    <div class="max-w-3xl">
+      <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">03</span>
+      <h2 id="founder-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4 mb-12">
+        Who's behind this.
+      </h2>
+      <div class="border border-ns-border p-8 md:p-12">
+        <p class="font-sans font-semibold text-ns-text text-xl mb-2">Agrim Goyal</p>
+        <p class="font-mono text-sm text-ns-accent mb-6">Founder, Northsake</p>
+        <p class="text-ns-text-secondary leading-relaxed">
+          I build at the intersection of AI, search, and content strategy. Northsake is where
+          I channel that into something specific: making consulting firms visible in a world
+          where both humans and machines decide who gets found.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== CTA ===== -->
+  <section class="content-container py-32 md:py-44 text-center">
+    <h2 class="font-display text-4xl md:text-6xl text-ns-text mb-8 italic">
+      Interested in working together?
+    </h2>
+    <p class="prose-ns max-w-xl mx-auto mb-12">
+      Every engagement starts with a conversation. Tell us about your firm and where you want your visibility to go.
+    </p>
+    <a href="/contact" class="btn-primary">
+      Start a Conversation
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+</BaseLayout>

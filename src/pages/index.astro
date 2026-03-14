@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+---
+
+<BaseLayout
+  title="Northsake — AI Visibility Infrastructure for Consulting Firms"
+  description="We help consulting firms get found on Google and cited by AI engines like ChatGPT and Perplexity. SEO, GEO, and AI citation optimization built for firms that sell expertise."
+>
+  <SchemaMarkup
+    type="service"
+    data={{
+      name: 'AI Visibility Infrastructure',
+      description: 'Comprehensive SEO, GEO, and AI citation optimization for consulting firms.',
+      serviceType: 'AI Visibility Infrastructure',
+    }}
+  />
+
+  <!-- ===== HERO ===== -->
+  <section class="content-container pt-16 md:pt-28 pb-24 md:pb-36">
+    <div class="max-w-5xl">
+      <p class="section-number mb-8">AI Visibility Infrastructure</p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-ns-text leading-[1.05] mb-8">
+        Your consulting firm<br />
+        deserves to be found.<br />
+        <span class="text-ns-accent italic">By humans. And by machines.</span>
+      </h1>
+      <p class="prose-ns max-w-2xl mb-12">
+        Google rankings are table stakes. The firms winning new business today are the ones
+        getting <strong>cited by ChatGPT, Perplexity, and Gemini</strong> when prospects
+        research their problems. We build the infrastructure that makes both happen.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/services" class="btn-primary">
+          Explore Our Approach
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/contact" class="btn-secondary">Get Your NorthScore</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SECTION 01: THE SHIFT ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="shift-heading">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">01</span>
+        <h2 id="shift-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4">
+          Google rankings aren't enough anymore.
+        </h2>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-6 pt-4">
+        <p class="prose-ns mb-8">
+          Your potential clients aren't just Googling anymore. They're asking ChatGPT for recommendations.
+          They're using Perplexity to research which firms handle their specific challenges. They're reading
+          AI-generated summaries before they ever visit your website.
+        </p>
+        <p class="prose-ns mb-12">
+          If your firm isn't part of those AI-generated answers, you're invisible to a growing segment of
+          decision-makers. <strong>Traditional SEO gets you ranked. AI visibility gets you cited.</strong> You need both.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="border-l-2 border-ns-accent pl-6">
+            <p class="font-mono text-sm text-ns-text-secondary mb-2">Traditional SEO</p>
+            <p class="text-ns-text text-lg">Get found when they search.</p>
+          </div>
+          <div class="border-l-2 border-ns-accent pl-6">
+            <p class="font-mono text-sm text-ns-text-secondary mb-2">AI Visibility (GEO)</p>
+            <p class="text-ns-text text-lg">Get cited when they ask.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SECTION 02: FIVE LAYERS ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="layers-heading">
+    <div class="max-w-5xl">
+      <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">02</span>
+      <h2 id="layers-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4 mb-6">
+        Five layers of visibility infrastructure.
+      </h2>
+      <p class="prose-ns max-w-2xl mb-16">
+        Visibility isn't a campaign you run. It's infrastructure you build. Each layer compounds
+        on the one below it, creating a system that grows stronger over time.
+      </p>
+    </div>
+
+    <div class="space-y-0">
+      {[
+        {
+          num: '01',
+          title: 'Technical Foundation',
+          desc: 'Site architecture, schema markup, Core Web Vitals, crawlability. The invisible layer that makes everything else possible.',
+        },
+        {
+          num: '02',
+          title: 'Content Authority',
+          desc: 'Pillar pages, topic clusters, and editorial content that demonstrates genuine expertise in your domain.',
+        },
+        {
+          num: '03',
+          title: 'AI Citation Layer',
+          desc: 'Structured content, entity optimization, and source patterns that AI engines recognize, trust, and cite.',
+        },
+        {
+          num: '04',
+          title: 'Authority & Trust',
+          desc: 'Backlink architecture, digital PR, entity signals, and the credibility markers that both Google and AI engines weight heavily.',
+        },
+        {
+          num: '05',
+          title: 'Conversion Infrastructure',
+          desc: 'Turning visibility into conversations. CTA architecture, landing pages, and the bridge from "found" to "hired."',
+        },
+      ].map((layer) => (
+        <div class="group border-t border-ns-border py-8 md:py-10 grid grid-cols-12 gap-4 items-start hover:bg-ns-surface/50 transition-colors duration-300 px-4 -mx-4">
+          <span class="col-span-2 md:col-span-1 font-mono text-sm text-ns-accent">{layer.num}</span>
+          <h3 class="col-span-10 md:col-span-3 font-sans font-semibold text-ns-text text-lg">{layer.title}</h3>
+          <p class="col-span-12 md:col-span-7 md:col-start-5 text-ns-text-secondary leading-relaxed">{layer.desc}</p>
+        </div>
+      ))}
+      <div class="border-t border-ns-border"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SECTION 03: WHY CONSULTING ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="consulting-heading">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">03</span>
+        <h2 id="consulting-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4">
+          Built for firms that sell expertise.
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 pt-4">
+        <p class="prose-ns mb-8">
+          Consulting firms have a unique visibility problem. Your product is knowledge. Your
+          differentiation is nuanced. Your buyer's journey is long, research-heavy, and
+          increasingly AI-mediated.
+        </p>
+        <p class="prose-ns mb-8">
+          Generic SEO agencies optimize for clicks. We optimize for the kind of visibility
+          that matters to firms selling high-value expertise: <strong>being the trusted source that
+          both search engines and AI engines surface when your clients research their problems.</strong>
+        </p>
+        <ul class="space-y-6 mt-12">
+          {[
+            'Long, research-intensive buyer journeys',
+            'Content that requires genuine domain expertise',
+            'Reputation and authority as primary differentiators',
+            'AI engines increasingly mediating the discovery process',
+          ].map((item) => (
+            <li class="flex items-start gap-4">
+              <span class="mt-1.5 w-1.5 h-1.5 bg-ns-accent flex-shrink-0"></span>
+              <span class="text-ns-text">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SECTION 04: NORTHSCORE ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="northscore-heading">
+    <div class="max-w-4xl">
+      <span class="font-mono text-6xl md:text-8xl font-bold text-ns-border select-none" aria-hidden="true">04</span>
+      <h2 id="northscore-heading" class="font-display text-3xl md:text-4xl text-ns-text mt-4 mb-6">
+        Every engagement starts with a score.
+      </h2>
+      <p class="prose-ns max-w-2xl mb-16">
+        The NorthScore is our diagnostic framework — a 0-to-100 assessment of your firm's
+        visibility infrastructure across all five layers. It tells us exactly where you stand,
+        what's working, and where the gaps are.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-ns-border">
+      {[
+        {
+          range: '0 — 30',
+          label: 'Foundation',
+          desc: 'Significant gaps in technical SEO, content, and AI visibility. Most firms start here.',
+        },
+        {
+          range: '31 — 65',
+          label: 'Building',
+          desc: 'Solid fundamentals with specific areas needing attention. The infrastructure is taking shape.',
+        },
+        {
+          range: '66 — 100',
+          label: 'Compounding',
+          desc: 'Strong infrastructure across layers. Focus shifts to maintaining momentum and expanding reach.',
+        },
+      ].map((tier) => (
+        <div class="bg-ns-bg p-8 md:p-10">
+          <p class="font-mono text-2xl text-ns-accent mb-2">{tier.range}</p>
+          <p class="font-sans font-semibold text-ns-text text-lg mb-4">{tier.label}</p>
+          <p class="text-ns-text-secondary text-sm leading-relaxed">{tier.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12">
+      <a href="/contact" class="btn-primary">
+        Get Your NorthScore
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section class="content-container py-32 md:py-44 text-center">
+    <p class="section-number mb-8">Ready?</p>
+    <h2 class="font-display text-4xl md:text-6xl lg:text-7xl text-ns-text mb-8 italic">
+      Let's find your direction.
+    </h2>
+    <p class="prose-ns max-w-xl mx-auto mb-12">
+      Whether you're exploring or ready to start, a conversation costs nothing and clarifies everything.
+    </p>
+    <a href="/contact" class="btn-primary">
+      Start a Conversation
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://northsake.com/sitemap-index.xml

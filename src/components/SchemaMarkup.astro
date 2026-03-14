@@ -1,0 +1,126 @@
+---
+interface Props {
+  type: 'organization' | 'service' | 'article' | 'faq' | 'person' | 'breadcrumb';
+  data?: Record<string, any>;
+}
+
+const { type, data = {} } = Astro.props;
+const siteUrl = 'https://northsake.com';
+
+function getSchema(type: string, data: Record<string, any>) {
+  const org = {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Northsake',
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/favicon.svg`,
+    },
+    description:
+      'AI visibility infrastructure for consulting firms. We help consulting firms get found on Google and cited by AI engines like ChatGPT and Perplexity.',
+    sameAs: [],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'hello@northsake.com',
+    },
+  };
+
+  switch (type) {
+    case 'organization':
+      return {
+        '@context': 'https://schema.org',
+        ...org,
+      };
+
+    case 'service':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        provider: org,
+        name: data.name || 'AI Visibility Infrastructure',
+        description: data.description || 'Comprehensive SEO, GEO, and AI citation optimization for consulting firms.',
+        url: data.url || `${siteUrl}/services`,
+        serviceType: data.serviceType || 'Digital Marketing',
+        areaServed: {
+          '@type': 'Place',
+          name: 'Worldwide',
+        },
+      };
+
+    case 'article':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: data.title,
+        description: data.description,
+        datePublished: data.publishedDate,
+        dateModified: data.modifiedDate || data.publishedDate,
+        author: {
+          '@type': 'Person',
+          name: data.author || 'Northsake',
+        },
+        publisher: org,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': data.url,
+        },
+        ...(data.image && {
+          image: {
+            '@type': 'ImageObject',
+            url: data.image,
+          },
+        }),
+      };
+
+    case 'faq':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: (data.questions || []).map(
+          (q: { question: string; answer: string }) => ({
+            '@type': 'Question',
+            name: q.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: q.answer,
+            },
+          })
+        ),
+      };
+
+    case 'person':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: data.name,
+        jobTitle: data.jobTitle,
+        worksFor: org,
+        description: data.description,
+        url: data.url || `${siteUrl}/about`,
+      };
+
+    case 'breadcrumb':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: (data.items || []).map(
+          (item: { name: string; url: string }, i: number) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: item.name,
+            item: item.url.startsWith('http') ? item.url : `${siteUrl}${item.url}`,
+          })
+        ),
+      };
+
+    default:
+      return {};
+  }
+}
+
+const schema = getSchema(type, data);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

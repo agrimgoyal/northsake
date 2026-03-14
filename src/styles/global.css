@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #060911;
+    color: #e8e2d9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(200, 165, 92, 0.3);
+    color: #e8e2d9;
+  }
+
+  /* Subtle grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+@layer components {
+  .section-number {
+    @apply font-mono text-sm tracking-widest-plus text-ns-text-secondary uppercase;
+  }
+
+  .section-divider {
+    @apply w-full h-px bg-ns-border;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-ns-accent text-ns-bg font-sans font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-ns-accent-hover;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 border border-ns-border text-ns-text font-sans font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:border-ns-accent hover:text-ns-accent;
+  }
+
+  .content-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .prose-ns {
+    @apply text-ns-text-secondary leading-relaxed text-lg;
+  }
+
+  .prose-ns strong {
+    @apply text-ns-text font-semibold;
+  }
+
+  .prose-ns a {
+    @apply text-ns-accent underline underline-offset-4 hover:text-ns-accent-hover transition-colors;
+  }
+}

@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Northsake — Start a Conversation"
+  description="Get in touch with Northsake. Whether you're exploring AI visibility for your consulting firm or ready to start, every engagement begins with a conversation."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Contact', url: '/contact' },
+  ]}
+>
+  <!-- ===== HERO ===== -->
+  <section class="content-container pt-16 md:pt-28 pb-24 md:pb-36">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+      <!-- Left: Headline -->
+      <div class="lg:col-span-5">
+        <p class="section-number mb-8">Contact</p>
+        <h1 class="font-display text-4xl md:text-6xl text-ns-text leading-tight mb-8">
+          Let's talk.
+        </h1>
+        <p class="prose-ns mb-12">
+          Whether you're exploring what AI visibility could mean for your firm or you're ready
+          to start building, a conversation costs nothing and clarifies everything.
+        </p>
+
+        <div class="space-y-8">
+          <div>
+            <p class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-2">Email</p>
+            <a href="mailto:hello@northsake.com" class="text-ns-accent hover:text-ns-accent-hover transition-colors text-lg">
+              hello@northsake.com
+            </a>
+          </div>
+          <div>
+            <p class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-2">What to expect</p>
+            <p class="text-ns-text-secondary text-sm leading-relaxed">
+              We'll respond within 24 hours. If there's a fit, we'll schedule a 30-minute call
+              to understand your firm and discuss what a NorthScore audit would reveal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="lg:col-span-6 lg:col-start-7">
+        <form
+          class="space-y-8"
+          id="contact-form"
+          action="https://formspree.io/f/placeholder"
+          method="POST"
+        >
+          <div>
+            <label for="name" class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-3 block">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full bg-transparent border-b border-ns-border py-3 text-ns-text placeholder-ns-text-secondary/40 focus:border-ns-accent focus:outline-none transition-colors"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-3 block">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full bg-transparent border-b border-ns-border py-3 text-ns-text placeholder-ns-text-secondary/40 focus:border-ns-accent focus:outline-none transition-colors"
+              placeholder="you@company.com"
+            />
+          </div>
+
+          <div>
+            <label for="company" class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-3 block">
+              Company
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autocomplete="organization"
+              class="w-full bg-transparent border-b border-ns-border py-3 text-ns-text placeholder-ns-text-secondary/40 focus:border-ns-accent focus:outline-none transition-colors"
+              placeholder="Your firm"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-3 block">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full bg-transparent border-b border-ns-border py-3 text-ns-text placeholder-ns-text-secondary/40 focus:border-ns-accent focus:outline-none transition-colors resize-none"
+              placeholder="Tell us about your firm and what you're looking for"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full sm:w-auto justify-center">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+
+const faqQuestions = [
+  {
+    question: 'What is AI visibility infrastructure?',
+    answer:
+      'AI visibility infrastructure is a systematic approach to making your firm discoverable and citable across both traditional search engines (Google) and AI engines (ChatGPT, Perplexity, Gemini). It combines technical SEO, content strategy, schema markup, entity optimization, and AI citation optimization into a compounding system.',
+  },
+  {
+    question: 'What is GEO (Generative Engine Optimization)?',
+    answer:
+      'GEO, or Generative Engine Optimization, is the practice of optimizing your content and online presence to be cited by AI-powered search and answer engines like ChatGPT, Perplexity, and Google AI Overviews. Unlike traditional SEO which focuses on ranking in search results, GEO focuses on being the source that AI engines reference when generating answers.',
+  },
+  {
+    question: 'How is this different from regular SEO?',
+    answer:
+      'Traditional SEO optimizes for Google\'s ranking algorithm — getting your pages to appear in search results. AI visibility goes further by also optimizing for how AI engines evaluate, select, and cite sources. This includes entity optimization, structured content patterns, authority signals that AI models weight, and content structures that make your expertise citable.',
+  },
+  {
+    question: 'Why do you focus specifically on consulting firms?',
+    answer:
+      'Consulting firms have unique visibility challenges: they sell expertise (not products), their buyer journeys are long and research-intensive, and their differentiation is nuanced. Generic SEO approaches miss these nuances. We specialize in making complex, expertise-driven firms visible because the strategies that work for e-commerce or SaaS don\'t translate to professional services.',
+  },
+  {
+    question: 'What is the NorthScore?',
+    answer:
+      'The NorthScore is our diagnostic framework — a 0-to-100 assessment of your firm\'s visibility infrastructure across five layers: Technical Foundation, Content Authority, AI Citation, Authority & Trust, and Conversion Infrastructure. It provides a clear baseline and measurable progress tracking for every engagement.',
+  },
+  {
+    question: 'How long does it take to see results?',
+    answer:
+      'Technical foundation improvements can show impact within weeks. Content authority and AI citation improvements typically begin showing measurable progress within 2-3 months. Significant compounding effects — where all five layers reinforce each other — usually emerge around the 4-6 month mark. We set expectations based on your specific NorthScore and prioritize the highest-impact layers first.',
+  },
+];
+---
+
+<BaseLayout
+  title="Services — AI Visibility Infrastructure for Consulting Firms"
+  description="SEO, GEO, and AI citation optimization designed for consulting firms. Technical foundation, content authority, AI citation optimization, and conversion infrastructure."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+  ]}
+>
+  <SchemaMarkup
+    type="service"
+    data={{
+      name: 'AI Visibility Infrastructure',
+      description:
+        'Comprehensive SEO, GEO, and AI citation optimization for consulting firms. Including technical SEO, content strategy, AI citation optimization, and conversion infrastructure.',
+      serviceType: 'AI Visibility Infrastructure',
+      url: 'https://northsake.com/services',
+    }}
+  />
+
+  <SchemaMarkup type="faq" data={{ questions: faqQuestions }} />
+
+  <!-- ===== HERO ===== -->
+  <section class="content-container pt-16 md:pt-28 pb-24 md:pb-36">
+    <div class="max-w-4xl">
+      <p class="section-number mb-8">Services</p>
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-ns-text leading-tight mb-8">
+        Infrastructure that<br />
+        <span class="italic text-ns-accent">compounds.</span>
+      </h1>
+      <p class="prose-ns max-w-2xl">
+        We don't run campaigns. We build visibility systems — layered, measurable, and designed
+        to grow stronger over time. Each layer reinforces the others, creating compounding
+        returns on your investment in being found.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="sr-only">Our Services</h2>
+
+    <div class="space-y-0">
+      {[
+        {
+          num: '01',
+          title: 'Technical SEO Foundation',
+          subtitle: 'The invisible layer that makes everything else work.',
+          desc: 'Your website\'s technical architecture determines whether search engines and AI crawlers can effectively access, understand, and prioritize your content. We audit and rebuild the technical layer to ensure nothing stands between your expertise and the algorithms evaluating it.',
+          includes: [
+            'Comprehensive technical audit and remediation',
+            'Schema markup implementation (Organization, Service, Person, FAQ, Article)',
+            'Site architecture and internal linking optimization',
+            'Core Web Vitals and page speed optimization',
+            'Crawlability, indexation, and XML sitemap management',
+            'Mobile-first responsive optimization',
+          ],
+        },
+        {
+          num: '02',
+          title: 'Content Authority Building',
+          subtitle: 'Content that demonstrates expertise, not just targets keywords.',
+          desc: 'Most SEO content reads like it was written for algorithms. We build content systems that demonstrate genuine expertise — pillar pages, topic clusters, and editorial content that positions your firm as the authority in your domain. Content that both humans and AI engines trust.',
+          includes: [
+            'Content strategy and topic cluster architecture',
+            'Pillar page development around core expertise areas',
+            'Keyword research and search intent mapping',
+            'Editorial content calendar and execution',
+            'Content optimization for E-E-A-T signals',
+            'Internal linking strategy to reinforce topical authority',
+          ],
+        },
+        {
+          num: '03',
+          title: 'AI Citation Optimization',
+          subtitle: 'Get cited when AI engines answer questions in your domain.',
+          desc: 'AI engines like ChatGPT, Perplexity, and Gemini don\'t just rank pages — they evaluate, synthesize, and cite sources. We optimize your content and digital presence to be the source these engines reference when generating answers about your area of expertise.',
+          includes: [
+            'AI citation audit — what AI engines currently say about your firm',
+            'Entity optimization and knowledge graph signals',
+            'Content structuring for AI-parseable citation patterns',
+            'Source authority building across AI training signals',
+            'Monitoring and reporting on AI citation frequency',
+            'Structured data optimization for AI comprehension',
+          ],
+        },
+        {
+          num: '04',
+          title: 'Authority & Trust Signals',
+          subtitle: 'The credibility markers that both Google and AI engines weight.',
+          desc: 'Visibility without authority is fragile. We build the trust signals — backlinks, entity recognition, digital PR, and third-party validation — that give both search engines and AI models confidence in recommending your firm.',
+          includes: [
+            'Backlink strategy and acquisition',
+            'Digital PR and industry publication placement',
+            'Entity authority development',
+            'Online reputation and review management',
+            'Industry directory and citation building',
+            'Speaking, podcast, and thought leadership amplification',
+          ],
+        },
+        {
+          num: '05',
+          title: 'Conversion Infrastructure',
+          subtitle: 'Turning visibility into conversations.',
+          desc: 'Being found is only valuable if it leads to business. We build the conversion layer — landing pages, CTA architecture, lead capture, and the strategic bridge between "someone found you" and "someone hired you."',
+          includes: [
+            'Landing page strategy and development',
+            'CTA architecture and placement optimization',
+            'Lead capture and qualification systems',
+            'Analytics setup and conversion tracking',
+            'A/B testing framework for conversion optimization',
+            'Monthly reporting on pipeline influence',
+          ],
+        },
+      ].map((service) => (
+        <div class="border-t border-ns-border py-16 md:py-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            <div class="lg:col-span-5">
+              <span class="font-mono text-sm text-ns-accent mb-4 block">{service.num}</span>
+              <h3 class="font-display text-2xl md:text-3xl text-ns-text mb-3">{service.title}</h3>
+              <p class="text-ns-accent text-sm font-sans">{service.subtitle}</p>
+            </div>
+            <div class="lg:col-span-6 lg:col-start-7">
+              <p class="text-ns-text-secondary leading-relaxed mb-8">{service.desc}</p>
+              <div>
+                <p class="font-mono text-xs tracking-widest-plus uppercase text-ns-text-secondary mb-4">What's included</p>
+                <ul class="space-y-3">
+                  {service.includes.map((item) => (
+                    <li class="flex items-start gap-3">
+                      <span class="mt-2 w-1 h-1 bg-ns-accent flex-shrink-0"></span>
+                      <span class="text-ns-text text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div class="border-t border-ns-border"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="process-heading">
+    <div class="max-w-4xl mb-16">
+      <p class="section-number mb-4">How We Work</p>
+      <h2 id="process-heading" class="font-display text-3xl md:text-4xl text-ns-text">
+        A clear process, no surprises.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-ns-border">
+      {[
+        {
+          step: '01',
+          title: 'NorthScore Audit',
+          desc: 'We assess your current visibility across all five layers. You get a clear score, a detailed breakdown, and a prioritized roadmap.',
+        },
+        {
+          step: '02',
+          title: 'Strategy & Roadmap',
+          desc: 'Based on your NorthScore, we build a phased plan targeting the highest-impact layers first. No boilerplate — every strategy is specific to your firm.',
+        },
+        {
+          step: '03',
+          title: 'Build & Execute',
+          desc: 'We implement systematically — technical fixes, content production, citation optimization, authority building. Each month builds on the last.',
+        },
+        {
+          step: '04',
+          title: 'Measure & Compound',
+          desc: 'Monthly reporting on what moved, what\'s next, and how your NorthScore is trending. Transparency at every step.',
+        },
+      ].map((phase) => (
+        <div class="bg-ns-bg p-8 md:p-10">
+          <span class="font-mono text-sm text-ns-accent mb-6 block">{phase.step}</span>
+          <h3 class="font-sans font-semibold text-ns-text text-lg mb-4">{phase.title}</h3>
+          <p class="text-ns-text-secondary text-sm leading-relaxed">{phase.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== FAQ ===== -->
+  <section class="content-container py-24 md:py-36" aria-labelledby="faq-heading">
+    <div class="max-w-4xl mb-16">
+      <p class="section-number mb-4">FAQ</p>
+      <h2 id="faq-heading" class="font-display text-3xl md:text-4xl text-ns-text">
+        Common questions.
+      </h2>
+    </div>
+
+    <div class="max-w-3xl space-y-0">
+      {faqQuestions.map((faq) => (
+        <details class="group border-t border-ns-border">
+          <summary class="flex items-center justify-between py-6 cursor-pointer list-none">
+            <h3 class="font-sans font-semibold text-ns-text text-lg pr-8">{faq.question}</h3>
+            <span class="text-ns-text-secondary flex-shrink-0 transition-transform duration-200 group-open:rotate-45 text-2xl leading-none">+</span>
+          </summary>
+          <div class="pb-8">
+            <p class="text-ns-text-secondary leading-relaxed">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+      <div class="border-t border-ns-border"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== CTA ===== -->
+  <section class="content-container py-32 md:py-44 text-center">
+    <h2 class="font-display text-4xl md:text-6xl text-ns-text mb-8 italic">
+      Ready to build your visibility?
+    </h2>
+    <p class="prose-ns max-w-xl mx-auto mb-12">
+      Start with a NorthScore audit. Understand where you stand, where the gaps are, and what to prioritize first.
+    </p>
+    <a href="/contact" class="btn-primary">
+      Get Your NorthScore
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </section>
+</BaseLayout>

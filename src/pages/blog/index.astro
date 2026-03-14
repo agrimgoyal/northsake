@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Insights — Thinking About Visibility, Search, and AI"
+  description="Articles on SEO, GEO, AI citation optimization, and visibility strategy for consulting firms. Practical insights from Northsake."
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Insights', url: '/blog' },
+  ]}
+>
+  <!-- ===== HERO ===== -->
+  <section class="content-container pt-16 md:pt-28 pb-16 md:pb-20">
+    <div class="max-w-3xl">
+      <p class="section-number mb-8">Insights</p>
+      <h1 class="font-display text-4xl md:text-6xl text-ns-text leading-tight mb-6">
+        Thinking about visibility.
+      </h1>
+      <p class="prose-ns">
+        Practical writing on SEO, generative engine optimization, AI citation, and what it takes
+        to build durable visibility for firms that sell expertise.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== POSTS ===== -->
+  <section class="content-container py-16 md:py-24" aria-label="Blog posts">
+    {posts.length === 0 ? (
+      <p class="text-ns-text-secondary text-lg">New articles coming soon.</p>
+    ) : (
+      <div class="space-y-0">
+        {posts.map((post) => (
+          <article class="border-t border-ns-border group">
+            <a href={`/blog/${post.id}`} class="block py-10 md:py-14 hover:bg-ns-surface/30 transition-colors duration-300 -mx-4 px-4">
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                <time
+                  datetime={post.data.pubDate.toISOString()}
+                  class="md:col-span-2 font-mono text-sm text-ns-text-secondary"
+                >
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </time>
+                <div class="md:col-span-7">
+                  <h2 class="font-display text-2xl md:text-3xl text-ns-text group-hover:text-ns-accent transition-colors duration-200 mb-3">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-ns-text-secondary leading-relaxed">{post.data.description}</p>
+                </div>
+                <div class="md:col-span-3 md:text-right">
+                  <div class="flex flex-wrap gap-2 md:justify-end">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="font-mono text-xs tracking-wider text-ns-text-secondary">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+        <div class="border-t border-ns-border"></div>
+      </div>
+    )}
+  </section>
+</BaseLayout>

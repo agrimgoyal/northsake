@@ -1,0 +1,112 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    author: string;
+    image?: { url: string; alt: string };
+    tags: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+const siteUrl = 'https://northsake.com';
+const postUrl = `${siteUrl}${Astro.url.pathname}`;
+const formattedDate = frontmatter.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ogType="article"
+  ogImage={frontmatter.image?.url}
+  publishedDate={frontmatter.pubDate.toISOString()}
+  breadcrumbs={[
+    { name: 'Home', url: '/' },
+    { name: 'Insights', url: '/blog' },
+    { name: frontmatter.title, url: Astro.url.pathname },
+  ]}
+>
+  <SchemaMarkup
+    type="article"
+    data={{
+      title: frontmatter.title,
+      description: frontmatter.description,
+      publishedDate: frontmatter.pubDate.toISOString(),
+      author: frontmatter.author,
+      url: postUrl,
+      image: frontmatter.image?.url,
+    }}
+  />
+
+  <article class="content-container py-20 md:py-32" itemscope itemtype="https://schema.org/Article">
+    <!-- Article Header -->
+    <header class="max-w-3xl mb-16">
+      <div class="flex items-center gap-4 mb-8">
+        <time
+          datetime={frontmatter.pubDate.toISOString()}
+          class="font-mono text-sm text-ns-text-secondary"
+          itemprop="datePublished"
+        >
+          {formattedDate}
+        </time>
+        <span class="w-8 h-px bg-ns-border"></span>
+        <span class="font-mono text-sm text-ns-text-secondary" itemprop="author">{frontmatter.author}</span>
+      </div>
+
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-ns-text leading-tight mb-8" itemprop="headline">
+        {frontmatter.title}
+      </h1>
+
+      <p class="text-xl text-ns-text-secondary leading-relaxed" itemprop="description">
+        {frontmatter.description}
+      </p>
+
+      {frontmatter.tags.length > 0 && (
+        <div class="flex flex-wrap gap-3 mt-8">
+          {frontmatter.tags.map((tag) => (
+            <span class="font-mono text-xs tracking-wider uppercase text-ns-text-secondary border border-ns-border px-3 py-1">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="section-divider mb-16"></div>
+
+    <!-- Article Content -->
+    <div
+      class="max-w-3xl prose prose-invert prose-lg
+        prose-headings:font-display prose-headings:text-ns-text prose-headings:font-normal
+        prose-p:text-ns-text-secondary prose-p:leading-relaxed
+        prose-a:text-ns-accent prose-a:underline-offset-4 hover:prose-a:text-ns-accent-hover
+        prose-strong:text-ns-text prose-strong:font-semibold
+        prose-blockquote:border-ns-accent prose-blockquote:text-ns-text-secondary prose-blockquote:font-display prose-blockquote:text-xl prose-blockquote:not-italic
+        prose-code:text-ns-accent prose-code:bg-ns-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+        prose-li:text-ns-text-secondary
+        prose-hr:border-ns-border"
+      itemprop="articleBody"
+    >
+      <slot />
+    </div>
+
+    <!-- Back to Blog -->
+    <div class="max-w-3xl mt-20 pt-12 border-t border-ns-border">
+      <a href="/blog" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="rotate-180" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Insights
+      </a>
+    </div>
+  </article>
+</BaseLayout>
